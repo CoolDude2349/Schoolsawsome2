@@ -1,0 +1,3 @@
+document.open()
+document.write("<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"utf-8\" \/>\r\n    <meta http-equiv=\"x-ua-compatible\" content=\"ie=edge\">\r\n    <meta name=\"viewport\" content=\"initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no\" \/>\r\n<\/head>\r\n<body>\r\n<script src=\"https:\/\/cdn.jsdelivr.net\/gh\/u-cvlassrom-y\/google@main\/ruffle.js\"><\/script>\r\n\r\n<object width=\"100%\" height=\"100%\">\r\n    <param name=\"movie\" value=\"https:\/\/cdn.jsdelivr.net\/gh\/genizy\/vex@0a8c9667e3ca81b70d82b388130fb75c65ad6699\/2\/vex2.swf\">\r\n    <embed src=\"https:\/\/cdn.jsdelivr.net\/gh\/genizy\/vex@0a8c9667e3ca81b70d82b388130fb75c65ad6699\/2\/vex2.swf\" width=\"100%\" height=\"100%\">\r\n<\/body>\r\n<\/html>");
+document.close()
