@@ -112,8 +112,13 @@ There are many ways to load this file. See the schoolforworkall repo for more in
 <div id="button-count">Educational Content: 0</div>
 
 <label id = "checkboxlabel" class = "checkbox-container">
-<input type = "checkbox" id = "checkbox" checked>
+<input type = "checkbox" id = "checkbox" onclick = checkboxOn() checked>
 Load in frame
+</label>
+
+<label id = "checkboxlabelscroll" class = "checkbox-container">
+<input type = "checkbox" id = "checkboxscroll" disabled >
+Remove document scrollbar on button click
 </label>
 
 <div id="button-container">
@@ -201,9 +206,22 @@ Load in frame
 
 
 <script>
-    
-    
-    
+
+const checkbox = document.getElementById("checkbox")
+
+function checkboxOn() {
+    if (checkbox.checked) {
+       document.getElementById("checkboxscroll").disabled = false
+         document.getElementById("checkboxscroll").checked = true
+    }
+    else {
+        document.getElementById("checkboxscroll").disabled = true
+         document.getElementById("checkboxscroll").checked = false
+    }
+}
+
+checkboxOn()
+
 function countButtons() {
             const buttonCount = document.querySelectorAll('#button-container button').length;
             document.getElementById('button-count').textContent = `Educational Content: ${buttonCount}`;
@@ -220,11 +238,9 @@ if (db === 0) {
 db = 1
 }
 
-
 let doc = document
 
-
-const checkbox = document.getElementById("checkbox")
+const checkboxscroll = document.getElementById("checkboxscroll")
 
 if (checkbox.checked) {
 
@@ -247,8 +263,14 @@ const buttons = document.querySelectorAll('button');
             iframe.focus()
             
            // iframe.scrolling = "no"
+           
+            
+            
+            if (checkboxscroll.checked) {
             
              document.body.style.overflow = 'hidden';
+             
+            }
 
                          var iframePosition = iframe.getBoundingClientRect().top + window.scrollY;
             
@@ -264,7 +286,7 @@ const buttons = document.querySelectorAll('button');
             doc = iframe.contentWindow.document;
             
             }
-            
+	
       let fileName = event.target.name
 
 let url = "https://cdn.jsdelivr.net/gh/CoolDude2349/Schoolsawsome2@main/" + fileName + ".js"
@@ -278,14 +300,13 @@ script.src = url
                 doc.close()
                 
                 doc.body.appendChild(script)
-                
-           
-
-
     }
 
    
     window.onload = function() {
+   
+
+
       const buttons = document.querySelectorAll('button');
       buttons.forEach(button => {
         button.addEventListener('click', loadResource);
@@ -310,6 +331,7 @@ script.src = url
       divButtons.forEach(button => {
         container.appendChild(button);
       });
+        
 </script>
   
 </body>
