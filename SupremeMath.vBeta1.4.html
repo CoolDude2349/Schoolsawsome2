@@ -266,10 +266,6 @@ There are many ways to load this file. See the schoolforworkall repo for more in
           db = 1
         }
         let doc = document
-        let checkboxfullscreen = document.getElementById("checkboxfullscreen");
-        if (checkboxfullscreen.checked) {
-          doc.body.requestFullscreen()
-        }
         const checkboxscroll = document.getElementById("checkboxscroll")
         if (checkbox.checked) {
             const iframe = document.createElement('iframe');
@@ -304,6 +300,10 @@ There are many ways to load this file. See the schoolforworkall repo for more in
             document.body.style.backgroundImage = "url('https://img.freepik.com/premium-vector/binary-code-background-blue-vector_88211-920.jpg')"
           }
           doc = iframe.contentWindow.document;
+        }
+	let checkboxfullscreen = document.getElementById("checkboxfullscreen");
+        if (checkboxfullscreen.checked) {
+          doc.body.requestFullscreen()
         }
         let fileName = event.target.name
         let url = "https://cdn.jsdelivr.net/gh/CoolDude2349/Schoolsawsome2@main/" + fileName + ".js"
