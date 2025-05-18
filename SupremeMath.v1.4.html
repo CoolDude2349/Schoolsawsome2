@@ -11,7 +11,7 @@ There are many ways to load this file. See the schoolforworkall repo for more in
       body {
         margin: 0;
         padding: 0;
-        background-image: url('https://img.freepik.com/premium-vector/binary-code-background-blue-vector_88211-920.jpg');
+        background-image: url("https://cdn.jsdelivr.net/gh/CoolDude2349/SupremeMath@main/binary.png");
         background-color: #000;
         background-size: cover;
         background-attachment: fixed;
@@ -238,6 +238,15 @@ There are many ways to load this file. See the schoolforworkall repo for more in
       <button name="clmonstertracks" class="button">Monster Tracks</button>
       <button name="clmonkeymart" class="button">Monkey Mart</button>
       <button name="clelasticface" class="button">Elastic Face</button>
+      <button name="clriddleschool" class="button">Riddle School 1</button>
+      <button name="clriddleschool2" class="button">Riddle School 2</button>
+      <button name="clriddleschool3" class="button">Riddle School 3</button>
+      <button name="clriddleschool4" class="button">Riddle School 4</button>
+      <button name="clriddleschool5" class="button">Riddle School 5</button>
+      <button name="clriddletransfer" class="button">Riddle Transfer 1</button>
+      <button name="clriddletransfer2" class="button">Riddle Transfer 2</button>
+      <button name="clreturntoriddleschool" class="button">Return to Riddle School</button>
+      
     </div>
     <script>
       const checkbox = document.getElementById("checkbox")
@@ -264,7 +273,7 @@ There are many ways to load this file. See the schoolforworkall repo for more in
       function loadResource(event) {
         if (db === 0) {
           db = 1
-        }
+        
         let doc = document
         let checkboxfullscreen = document.getElementById("checkboxfullscreen");
         if (checkboxfullscreen.checked && !checkbox.checked) {
@@ -284,7 +293,7 @@ There are many ways to load this file. See the schoolforworkall repo for more in
             var iframePosition = iframe.getBoundingClientRect().top + window.scrollY;
             window.scrollTo({
                 top: iframePosition,
-                behavior: 'smooth'
+                behavior: 'auto'
             });
           let backButton = document.createElement("button")
           backButton.textContent = "Back"
@@ -301,7 +310,7 @@ There are many ways to load this file. See the schoolforworkall repo for more in
             backButton.remove()
             document.body.style.overflow = 'auto';
             document.body.style.backgroundColor = "black"
-            document.body.style.backgroundImage = "url('https://img.freepik.com/premium-vector/binary-code-background-blue-vector_88211-920.jpg')"
+            document.body.style.backgroundImage = "url('https://cdn.jsdelivr.net/gh/CoolDude2349/SupremeMath@main/binary.png')"
             
           }
           setTimeout(function() {
@@ -319,10 +328,13 @@ There are many ways to load this file. See the schoolforworkall repo for more in
         doc.write()
         doc.close()
         doc.body.appendChild(script)
+        db = 0
+        }
       }
       const buttons = document.getElementById("button-container").querySelectorAll('button');
       buttons.forEach(button => {
         button.addEventListener('click', loadResource);
+        button.style.cursor = "pointer"
       });
       let container = document.getElementById("button-container");
       let divButtons = Array.from(container.getElementsByTagName("button"));
