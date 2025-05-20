@@ -4,7 +4,7 @@ I get most of these files from https://docs.google.com/document/d/1_FmH3BlSBQI7F
 
 Lastest Supreme Math version is 1.4
 
-The two educational files here are Supreme Math and gn-math. 
+The two educational files here are Supreme Math and gn-math (from https://gn-math.github.io)
 
 Fetch the html files using https://cdn.jsdelivr.net/gh/CoolDude2349/Schoolsawsome2@main/SupremeMath.v1.4.html or https://cdn.jsdelivr.net/gh/CoolDude2349/Schoolsawsome2@main/Gn-math.html
 
