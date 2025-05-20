@@ -4,4 +4,4 @@ I get most of these files from https://docs.google.com/document/d/1_FmH3BlSBQI7F
 
 Lastest Supreme Math version is 1.4
 
-The two html files that use these scripts are Supreme Math and  gn-math.
+The two educational files here are Supreme Math and gn-math.
