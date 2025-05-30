@@ -1,5 +1,5 @@
 <html>
-<!--
+  <!--
 The supreme place to learn all your math.
 	
 Most of these educational contents are not owned by me. Credit to this goes to https://docs.google.com/document/d/1_FmH3BlSBQI7FGgAQL59-ZPe8eCxs35wel6JUyVaG8Q/
@@ -19,17 +19,16 @@ There are many ways to load this file. See the schoolforworkall repo for more in
         color: #ffffff;
         font-family: Arial, sans-serif;
         text-align: center;
-        
       }
 
       h1 {
         margin-top: 20px;
         font-size: 75px;
-       transform: rotate(5deg);
+        transform: rotate(5deg);
       }
 
       h2 {
-          font-family: 'Fira Code', monospace;
+        font-family: 'Fira Code', monospace;
         font-size: 30px;
       }
 
@@ -62,6 +61,10 @@ There are many ways to load this file. See the schoolforworkall repo for more in
         /* font-family: Verdana , sans-serif; */
       }
 
+      .button:hover {
+        background: #000000;
+      }
+
       .checkbox-container {
         display: block;
         font-family: 'Fira Code', monospace;
@@ -80,9 +83,8 @@ There are many ways to load this file. See the schoolforworkall repo for more in
       }
 
       #flash-notice {
-         padding: 2px 5px;
+        padding: 2px 5px;
         width: 80px;
-
         position: absolute;
         right: 0px;
         top: 80px;
@@ -90,6 +92,20 @@ There are many ways to load this file. See the schoolforworkall repo for more in
         background-color: rgba(0, 0, 0, 0.5);
         color: white;
         border-radius: 5px;
+      }
+
+      #labelsearch {
+        font-family: 'Fira Code', monospace;
+        font-size: 20px;
+      }
+
+      #search {
+        margin-top: 30px;
+        border-radius: 5px;
+        height: 30px;
+        width: 250px;
+        font-size: 20px;
+        font-family: 'Fira Code', monospace;
       }
     </style>
   </head>
@@ -106,6 +122,8 @@ There are many ways to load this file. See the schoolforworkall repo for more in
       <input type="checkbox" id="checkboxscroll" disabled> Remove document scrollbar on button click </label>
     <label id="checkboxlabelfullscreen" class="checkbox-container">
       <input type="checkbox" id="checkboxfullscreen"> Fullscreen </label>
+    <label id="labelsearch"> Search <input id="search" type="textbox">
+    </label>
     <div id="button-container">
       <button name="cleag1.3" class="button"> Eag 1.3 </button>
       <button name="academy-loader-open1.8" class="button"> Eag 1.8 </button>
@@ -243,10 +261,26 @@ There are many ways to load this file. See the schoolforworkall repo for more in
       <button name="clriddletransfer" class="button">Riddle Transfer 1</button>
       <button name="clriddletransfer2" class="button">Riddle Transfer 2</button>
       <button name="clreturntoriddleschool" class="button">Return to Riddle School</button>
-      
+      <button name="clbouncymotors" class="button">Bouncy Motors</button>
+      <button name="clrocketsoccerderby" class="button">Rocket Soccer Derby</button>
     </div>
     <script>
       const checkbox = document.getElementById("checkbox")
+      document.getElementById("search").addEventListener("input", function() {
+        search(this.value)
+      })
+
+      function search(value) {
+        let searchBox = document.getElementById("search")
+        let searchText = value.toLowerCase()
+        buttons.forEach(button => {
+          if (!button.textContent.toLowerCase().includes(searchText)) {
+            button.style.display = "none"
+          } else {
+            button.style.display = "inline-block"
+          }
+        });
+      }
 
       function checkboxOn() {
         if (checkbox.checked) {
@@ -270,14 +304,13 @@ There are many ways to load this file. See the schoolforworkall repo for more in
       function loadResource(event) {
         if (db === 0) {
           db = 1
-        
-        let doc = document
-        let checkboxfullscreen = document.getElementById("checkboxfullscreen");
-        if (checkboxfullscreen.checked && !checkbox.checked) {
-          doc.body.requestFullscreen()
-        }
-        const checkboxscroll = document.getElementById("checkboxscroll")
-        if (checkbox.checked) {
+          let doc = document
+          let checkboxfullscreen = document.getElementById("checkboxfullscreen");
+          if (checkboxfullscreen.checked && !checkbox.checked) {
+            doc.body.requestFullscreen()
+          }
+          const checkboxscroll = document.getElementById("checkboxscroll")
+          if (checkbox.checked) {
             const iframe = document.createElement('iframe');
             iframe.style.width = '100%';
             iframe.style.height = '100vh';
@@ -285,45 +318,44 @@ There are many ways to load this file. See the schoolforworkall repo for more in
             document.body.appendChild(iframe)
             iframe.contentWindow.focus()
             if (checkboxscroll.checked) {
-                document.body.style.overflow = 'hidden';
+              document.body.style.overflow = 'hidden';
             }
             var iframePosition = iframe.getBoundingClientRect().top + window.scrollY;
             window.scrollTo({
-                top: iframePosition,
-                behavior: 'auto'
+              top: iframePosition,
+              behavior: 'auto'
             });
-          let backButton = document.createElement("button")
-          backButton.textContent = "Back"
-          backButton.style.position = 'absolute'
-          backButton.style.top = iframe.offsetTop + 'px';
-          backButton.style.left = iframe.offsetLeft + 'px';
-          backButton.style.zIndex = '100'
-          backButton.style.fontSize = '7px';
-          document.body.appendChild(backButton)
-          document.body.style.backgroundImage = "none"
-          backButton.onclick = function() {
-            iframe.remove()
-            backButton.remove()
-            document.body.style.overflow = 'auto';
-            document.body.style.backgroundImage = "url('https://cdn.dribbble.com/userupload/21518661/file/original-a1a95e97d8ba29376b835e682ef274ab.gif')"
-            
-          }
-          setTimeout(function() {
-          if (checkboxfullscreen.checked) {
-                iframe.requestFullscreen()
+            let backButton = document.createElement("button")
+            backButton.textContent = "Back"
+            backButton.style.position = 'absolute'
+            backButton.style.top = iframe.offsetTop + 'px';
+            backButton.style.left = iframe.offsetLeft + 'px';
+            backButton.style.zIndex = '100'
+            backButton.style.fontSize = '7px';
+            document.body.appendChild(backButton)
+            document.body.style.backgroundImage = "none"
+            backButton.onclick = function() {
+              iframe.remove()
+              backButton.remove()
+              document.body.style.overflow = 'auto';
+              document.body.style.backgroundImage = "url('https://cdn.dribbble.com/userupload/21518661/file/original-a1a95e97d8ba29376b835e682ef274ab.gif')"
             }
-          }, 1500)
-          doc = iframe.contentWindow.document;
-        }
-        let fileName = event.target.name
-        let url = "https://cdn.jsdelivr.net/gh/CoolDude2349/Schoolsawsome2@main/" + fileName + ".js"
-        let script = document.createElement("script")
-        script.src = url
-        doc.open()
-        doc.write()
-        doc.close()
-        doc.body.appendChild(script)
-        db = 0
+            setTimeout(function() {
+              if (checkboxfullscreen.checked) {
+                iframe.requestFullscreen()
+              }
+            }, 1500)
+            doc = iframe.contentWindow.document;
+          }
+          let fileName = event.target.name
+          let url = "https://cdn.jsdelivr.net/gh/CoolDude2349/Schoolsawsome2@main/" + fileName + ".js"
+          let script = document.createElement("script")
+          script.src = url
+          doc.open()
+          doc.write()
+          doc.close()
+          doc.body.appendChild(script)
+          db = 0
         }
       }
       const buttons = document.getElementById("button-container").querySelectorAll('button');
