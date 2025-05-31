@@ -324,6 +324,7 @@ There are many ways to load this file. See the schoolforworkall repo for more in
        <button name="cldigtochina" class="button">Dig To China</button>
        <button name="clcleanup" class="button">Cleanup I0</button>
        <button name="clblockysnakes" class="button">Blocky Snakes</button>
+       <button name="clamongus" class="button">Among Us</button>
     </div>
     <script>
     
@@ -369,6 +370,10 @@ There are many ways to load this file. See the schoolforworkall repo for more in
       function loadResource(event) {
         if (db === 0) {
           db = 1
+        let elements = document.body.getElementsByTagName('*')
+        for (let i = 0; i < elements.length; i++) {
+                elements[i].style.display = 'none'
+            }
         document.getElementById("search").value = ""
         let doc = document
         let checkboxfullscreen = document.getElementById("checkboxfullscreen");
@@ -405,6 +410,9 @@ There are many ways to load this file. See the schoolforworkall repo for more in
             backButton.remove()
             document.body.style.overflow = 'auto';
             document.body.style.backgroundImage = "url('https://cdn.jsdelivr.net/gh/CoolDude2349/SupremeMath@main/shapes.gif')"
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].style.display = ''
+            }
             var bodyPosition = document.body.getBoundingClientRect().top + window.scrollY;
             window.scrollTo({
                 top: bodyPosition,
