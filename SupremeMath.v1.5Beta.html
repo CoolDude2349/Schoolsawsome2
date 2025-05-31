@@ -417,6 +417,7 @@ There are many ways to load this file. See the schoolforworkall repo for more in
         db = 0
         }
       }
+      
       const buttons = document.getElementById("button-container").querySelectorAll('button');
       buttons.forEach(button => {
         button.addEventListener('click', loadResource);
@@ -425,10 +426,14 @@ There are many ways to load this file. See the schoolforworkall repo for more in
       let container = document.getElementById("button-container");
       let divButtons = Array.from(container.getElementsByTagName("button"));
       divButtons.sort((a, b) => {
-        let textA = a.textContent.trim()[0].toUpperCase();
-        let textB = b.textContent.trim()[0].toUpperCase();
-        return textA.localeCompare(textB);
-      });
+          let textA = a.textContent.trim().toUpperCase()
+          let textB = b.textContent.trim().toUpperCase()
+          let firstCharCompare = textA.charAt(0).localeCompare(textB.charAt(0))
+          if (firstCharCompare !== 0) {
+            return firstCharCompare
+          }
+          return textA.localeCompare(textB)
+        })
       container.innerHTML = "";
       divButtons.forEach(button => {
         container.appendChild(button);
