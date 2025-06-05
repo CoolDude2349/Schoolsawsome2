@@ -6,6 +6,6 @@ Lastest Supreme Math version is 1.5
 
 The two educational files here are Supreme Math and gn-math (from https://gn-math.github.io)
 
-Fetch the html files using https://cdn.jsdelivr.net/gh/CoolDude2349/Schoolsawsome2@main/SupremeMath.v1.4.html or https://cdn.jsdelivr.net/gh/CoolDude2349/Schoolsawsome2@main/Gn-math.html
+Fetch the html files using https://cdn.jsdelivr.net/gh/CoolDude2349/Schoolsawsome2@main/SupremeMath.v1.5.html or https://cdn.jsdelivr.net/gh/CoolDude2349/Schoolsawsome2@main/Gn-math.html
 
-Or add a script source for https://cdn.jsdelivr.net/gh/CoolDude2349/Schoolsawsome2@main/SupremeMath.v1.4.js or https://cdn.jsdelivr.net/gh/CoolDude2349/Schoolsawsome2@main/Gn-math.js
+Or add a script source for https://cdn.jsdelivr.net/gh/CoolDude2349/Schoolsawsome2@main/SupremeMath.v1.5.js or https://cdn.jsdelivr.net/gh/CoolDude2349/Schoolsawsome2@main/Gn-math.js
