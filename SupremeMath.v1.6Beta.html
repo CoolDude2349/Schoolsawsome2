@@ -47,7 +47,10 @@ There are many ways to load this file. See the schoolworkforall repo for more in
         top: 5px;
         font-size: 18px;
       }
-
+        
+    p {
+        font-weight: bold;
+    }
       .button {
         display: inline-block;
         margin-top: 40px;
@@ -132,12 +135,14 @@ There are many ways to load this file. See the schoolworkforall repo for more in
       <input type="checkbox" id="checkbox" onclick=checkboxOn() checked> Load in frame </label>
     <label id="checkboxlabelscroll" class="checkbox-container">
       <input type="checkbox" id="checkboxscroll" disabled> Remove document scrollbar on button click </label>
-    <label id="checkboxlabelfullscreen" class="checkbox-container">
-      <input type="checkbox" id="checkboxfullscreen"> Fullscreen </label>
+    
       
     <label id = "labelsearch">  Search
         <input id = "search" type = "textbox">
     </label>
+      
+      <p>Top left corner buttons: B = Back, F = Fullscreen</p>
+      
       
     <div id="button-container">
       <button name="cleag1.3" class="button"> Eag 1.3 </button>
@@ -436,10 +441,7 @@ There are many ways to load this file. See the schoolworkforall repo for more in
             }
         document.getElementById("search").value = ""
         let doc = document
-        let checkboxfullscreen = document.getElementById("checkboxfullscreen");
-        if (checkboxfullscreen.checked && !checkbox.checked) {
-          doc.body.requestFullscreen()
-        }
+        
         const checkboxscroll = document.getElementById("checkboxscroll")
         if (checkbox.checked) {
             const iframe = document.createElement('iframe');
@@ -457,17 +459,40 @@ There are many ways to load this file. See the schoolworkforall repo for more in
                 behavior: 'auto'
             });
           let backButton = document.createElement("button")
-          backButton.textContent = "Back"
+          backButton.textContent = "B"
+            backButton.style.display = 'flex';     
+
           backButton.style.position = 'absolute'
           backButton.style.top = iframe.offsetTop + 'px';
           backButton.style.left = iframe.offsetLeft + 'px';
           backButton.style.zIndex = '100'
           backButton.style.fontSize = '7px';
+          backButton.style.width = "2px"
+          backButton.style.alignItems = 'center';          
+backButton.style.justifyContent = 'center'; 
           document.body.appendChild(backButton)
+          
+          let fullscreenButton = document.createElement("button")
+          fullscreenButton.style.display = 'flex';     
+        fullscreenButton.style.width = "2px"
+fullscreenButton.style.alignItems = 'center';          
+fullscreenButton.style.justifyContent = 'center'; 
+          fullscreenButton.textContent = "F"
+          fullscreenButton.style.position = 'absolute'
+          fullscreenButton.style.top = iframe.offsetTop + 'px';
+          fullscreenButton.style.left = (iframe.offsetLeft + backButton.offsetWidth) + 'px';          fullscreenButton.style.zIndex = '100'
+          fullscreenButton.style.fontSize = '7px';
+          document.body.appendChild(fullscreenButton)
+          
           document.body.style.backgroundImage = "none"
+          
+          fullscreenButton.onclick = function() {
+              doc.body.requestFullscreen()
+          }
           backButton.onclick = function() {
             iframe.remove()
             backButton.remove()
+            fullscreenButton.remove()
             document.body.style.overflow = 'auto';
             document.body.style.backgroundImage = "url('https://cdn.jsdelivr.net/gh/CoolDude2349/SupremeMath@main/shapes.gif')"
             for (let i = 0; i < elements.length; i++) {
@@ -484,11 +509,7 @@ There are many ways to load this file. See the schoolworkforall repo for more in
             
             
           }
-          setTimeout(function() {
-          if (checkboxfullscreen.checked) {
-                iframe.requestFullscreen()
-            }
-          }, 1500)
+        
           doc = iframe.contentWindow.document;
         }
         let fileName = event.target.name
